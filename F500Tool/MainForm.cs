@@ -343,13 +343,18 @@ namespace F500Tool
             try
             {
                 var filesData = new List<byte>();
-                var filesDataBaseOffset = sizeof (RomHeader) + _files.Count*sizeof (RomFileHeader);
+
+                var filesDataBaseRawOffset = sizeof (RomHeader) + _files.Count*sizeof (RomFileHeader);
+                var filesDataBaseOffset = (filesDataBaseRawOffset / 0x800 + 1) * 0x800;
+                var filesHeaderPaddingCount = filesDataBaseOffset - filesDataBaseRawOffset;
+
                 foreach (var file in _files)
                 {
                     file.Header.FileOffset = filesDataBaseOffset;
                     file.Header.FileLength = file.Content.Length;
 
-                    Logger.Trace("{0} {1:X} {2:X}", file.FileName, file.Header.FileOffset, file.Header.FileLength);
+                    Logger.Trace("{0} {1:X} {2:X}", 
+                        file.FileName, file.Header.FileOffset, file.Header.FileLength);
 
                     filesData.AddRange(file.Content);
 
@@ -376,6 +381,8 @@ namespace F500Tool
                 {
                     rom.AddRange(getBytes(file.Header));
                 }
+
+                rom.AddRange(Enumerable.Repeat((byte)0xFF, filesHeaderPaddingCount));
 
                 rom.AddRange(filesData);
 

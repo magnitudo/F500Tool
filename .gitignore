@@ -4,3 +4,10 @@ obj
 
 # mstest test results
 TestResults
+*.suo
+
+#Resharper
+_ReSharper.F500Tool
+
+#NuGet
+packages/NLog.2.0.0.2000

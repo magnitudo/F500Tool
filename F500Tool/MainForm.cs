@@ -294,7 +294,7 @@ namespace F500Tool
         {
             try
             {
-                if (filesListBox.SelectedIndex <= 0 || _files == null) return;
+                if (filesListBox.SelectedIndex < 0 || _files == null) return;
 
                 var file = _files[filesListBox.SelectedIndex];
                 var saveDlg = new SaveFileDialog
@@ -317,7 +317,7 @@ namespace F500Tool
         {
             try
             {
-                if (filesListBox.SelectedIndex <= 0 || _files == null) return;
+                if (filesListBox.SelectedIndex < 0 || _files == null) return;
 
                 var file = _files[filesListBox.SelectedIndex];
                 var openDlg = new OpenFileDialog()
@@ -434,7 +434,7 @@ namespace F500Tool
             try
             {
                 var index = filesListBox.SelectedIndex;
-                if (index > 0 && _files != null)
+                if (index >= 0 && _files != null)
                 {
                     var file = _files[index];
                     picturePreview.Image = file.FileName.ToLower().Contains(".jpg") 

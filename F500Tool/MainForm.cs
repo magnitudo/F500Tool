@@ -523,5 +523,11 @@ namespace F500Tool
                 Logger.ErrorException(ex.Message, ex);
             }
         }
+
+        private void aboutButton_Click(object sender, EventArgs e)
+        {
+            var ab = new AboutBox();
+            ab.ShowDialog();
+        }
     }
 }

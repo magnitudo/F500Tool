@@ -30,28 +30,30 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.openFirmware = new System.Windows.Forms.ToolStripButton();
             this.LogTextBox = new System.Windows.Forms.TextBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.RomTabPage = new System.Windows.Forms.TabPage();
-            this.picturePreview = new System.Windows.Forms.PictureBox();
             this.filesListBox = new System.Windows.Forms.ListBox();
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
-            this.extractButton = new System.Windows.Forms.ToolStripButton();
-            this.packButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.saveRomButton = new System.Windows.Forms.ToolStripButton();
             this.BitmapsPage = new System.Windows.Forms.TabPage();
             this.hexTextBox = new System.Windows.Forms.TextBox();
             this.BitmapsList = new System.Windows.Forms.ListBox();
+            this.picturePreview = new System.Windows.Forms.PictureBox();
+            this.extractButton = new System.Windows.Forms.ToolStripButton();
+            this.packButton = new System.Windows.Forms.ToolStripButton();
+            this.saveRomButton = new System.Windows.Forms.ToolStripButton();
+            this.openFirmware = new System.Windows.Forms.ToolStripButton();
+            this.aboutButton = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.RomTabPage.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picturePreview)).BeginInit();
             this.toolStrip2.SuspendLayout();
             this.BitmapsPage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picturePreview)).BeginInit();
             this.SuspendLayout();
             // 
             // toolStrip1
@@ -59,22 +61,14 @@
             this.toolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.toolStrip1.ImageScalingSize = new System.Drawing.Size(32, 32);
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.openFirmware});
+            this.openFirmware,
+            this.toolStripSeparator2,
+            this.aboutButton});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(641, 39);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
-            // 
-            // openFirmware
-            // 
-            this.openFirmware.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.openFirmware.Image = global::F500Tool.Properties.Resources.open;
-            this.openFirmware.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.openFirmware.Name = "openFirmware";
-            this.openFirmware.Size = new System.Drawing.Size(36, 36);
-            this.openFirmware.Text = "Открыть файл прошивки";
-            this.openFirmware.Click += new System.EventHandler(this.OpenFirmwareClick);
             // 
             // LogTextBox
             // 
@@ -121,15 +115,6 @@
             this.RomTabPage.Text = "ROM";
             this.RomTabPage.UseVisualStyleBackColor = true;
             // 
-            // picturePreview
-            // 
-            this.picturePreview.Location = new System.Drawing.Point(236, 45);
-            this.picturePreview.Name = "picturePreview";
-            this.picturePreview.Size = new System.Drawing.Size(100, 50);
-            this.picturePreview.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.picturePreview.TabIndex = 3;
-            this.picturePreview.TabStop = false;
-            // 
             // filesListBox
             // 
             this.filesListBox.Dock = System.Windows.Forms.DockStyle.Left;
@@ -156,40 +141,10 @@
             this.toolStrip2.TabIndex = 2;
             this.toolStrip2.Text = "toolStrip2";
             // 
-            // extractButton
-            // 
-            this.extractButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.extractButton.Image = global::F500Tool.Properties.Resources.extract;
-            this.extractButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.extractButton.Name = "extractButton";
-            this.extractButton.Size = new System.Drawing.Size(36, 36);
-            this.extractButton.Text = "Извлечь файл";
-            this.extractButton.Click += new System.EventHandler(this.ExtractButtonClick);
-            // 
-            // packButton
-            // 
-            this.packButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.packButton.Image = global::F500Tool.Properties.Resources.pack;
-            this.packButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.packButton.Name = "packButton";
-            this.packButton.Size = new System.Drawing.Size(36, 36);
-            this.packButton.Text = "Заменить файл";
-            this.packButton.Click += new System.EventHandler(this.PackButtonClick);
-            // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(6, 39);
-            // 
-            // saveRomButton
-            // 
-            this.saveRomButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.saveRomButton.Image = global::F500Tool.Properties.Resources.save;
-            this.saveRomButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.saveRomButton.Name = "saveRomButton";
-            this.saveRomButton.Size = new System.Drawing.Size(36, 36);
-            this.saveRomButton.Text = "Сохранить ROM для прошивки";
-            this.saveRomButton.Click += new System.EventHandler(this.SaveRomButtonClick);
             // 
             // BitmapsPage
             // 
@@ -223,6 +178,70 @@
             this.BitmapsList.TabIndex = 0;
             this.BitmapsList.SelectedIndexChanged += new System.EventHandler(this.BitmapsListSelectedIndexChanged);
             // 
+            // picturePreview
+            // 
+            this.picturePreview.Location = new System.Drawing.Point(236, 45);
+            this.picturePreview.Name = "picturePreview";
+            this.picturePreview.Size = new System.Drawing.Size(100, 50);
+            this.picturePreview.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.picturePreview.TabIndex = 3;
+            this.picturePreview.TabStop = false;
+            // 
+            // extractButton
+            // 
+            this.extractButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.extractButton.Image = global::F500Tool.Properties.Resources.extract;
+            this.extractButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.extractButton.Name = "extractButton";
+            this.extractButton.Size = new System.Drawing.Size(36, 36);
+            this.extractButton.Text = "Извлечь файл";
+            this.extractButton.Click += new System.EventHandler(this.ExtractButtonClick);
+            // 
+            // packButton
+            // 
+            this.packButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.packButton.Image = global::F500Tool.Properties.Resources.pack;
+            this.packButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.packButton.Name = "packButton";
+            this.packButton.Size = new System.Drawing.Size(36, 36);
+            this.packButton.Text = "Заменить файл";
+            this.packButton.Click += new System.EventHandler(this.PackButtonClick);
+            // 
+            // saveRomButton
+            // 
+            this.saveRomButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.saveRomButton.Image = global::F500Tool.Properties.Resources.save;
+            this.saveRomButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.saveRomButton.Name = "saveRomButton";
+            this.saveRomButton.Size = new System.Drawing.Size(36, 36);
+            this.saveRomButton.Text = "Сохранить ROM для прошивки";
+            this.saveRomButton.Click += new System.EventHandler(this.SaveRomButtonClick);
+            // 
+            // openFirmware
+            // 
+            this.openFirmware.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.openFirmware.Image = global::F500Tool.Properties.Resources.open;
+            this.openFirmware.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.openFirmware.Name = "openFirmware";
+            this.openFirmware.Size = new System.Drawing.Size(36, 36);
+            this.openFirmware.Text = "Открыть файл прошивки";
+            this.openFirmware.Click += new System.EventHandler(this.OpenFirmwareClick);
+            // 
+            // aboutButton
+            // 
+            this.aboutButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.aboutButton.Image = global::F500Tool.Properties.Resources.info;
+            this.aboutButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.aboutButton.Name = "aboutButton";
+            this.aboutButton.Size = new System.Drawing.Size(36, 36);
+            this.aboutButton.Text = "toolStripButton1";
+            this.aboutButton.Click += new System.EventHandler(this.aboutButton_Click);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 39);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -241,11 +260,11 @@
             this.tabPage1.PerformLayout();
             this.RomTabPage.ResumeLayout(false);
             this.RomTabPage.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picturePreview)).EndInit();
             this.toolStrip2.ResumeLayout(false);
             this.toolStrip2.PerformLayout();
             this.BitmapsPage.ResumeLayout(false);
             this.BitmapsPage.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picturePreview)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -269,6 +288,8 @@
         private System.Windows.Forms.TabPage BitmapsPage;
         private System.Windows.Forms.ListBox BitmapsList;
         private System.Windows.Forms.TextBox hexTextBox;
+        private System.Windows.Forms.ToolStripButton aboutButton;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
     }
 }
 

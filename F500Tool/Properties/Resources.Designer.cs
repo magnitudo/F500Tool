@@ -67,6 +67,20 @@ namespace F500Tool.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap F500 {
+            get {
+                object obj = ResourceManager.GetObject("F500", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap info {
+            get {
+                object obj = ResourceManager.GetObject("info", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap open {
             get {
                 object obj = ResourceManager.GetObject("open", resourceCulture);

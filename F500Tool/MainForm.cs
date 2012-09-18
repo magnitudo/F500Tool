@@ -94,6 +94,7 @@ namespace F500Tool
 
             stream.Seek(sectionStart + sizeof(SectionHeader) + sizeof(RomHeader), SeekOrigin.Begin);
 
+            var actualFilesCount = romHeader.FilesCount;
             for(var i=0; i < romHeader.FilesCount;i++)
             {
                 var fileHeaderData = new byte[sizeof(RomFileHeader)];
@@ -107,8 +108,30 @@ namespace F500Tool
                 {
                     result.Add(romFile);
                 }
-                else throw new Exception("Wrong Magik. File isn't valid firmware file");                 
+                else
+                {
+                    var isPadding = true;
+                    for (var j = 0; j < fileHeaderData.Length; j++)
+                    {
+                        if (fileHeaderData[j] != 0xFF)
+                        {
+                            isPadding = false;
+                            break;
+                        }
+
+                    }
+                    if (isPadding)
+                    {
+                        Logger.Warn(
+                            "Wrong Magik {0:X4}. File header for {1}(index={2} offset={3:X6}) isn't valid but looks as padding. Ignore it.",
+                            romFile.Header.Magik, romFile.Header.FileName, i, romFile.Header.FileOffset);
+                        actualFilesCount--;
+                    }
+                    else throw new Exception("Wrong Magik {0:X4}. File header for {1}(index={2} offset={3:X6}) isn't valid and not looks as padding.");
+                }
             }
+            romHeader.FilesCount = actualFilesCount;
+            Logger.Trace("Actual files count {0}", actualFilesCount);
 
             foreach(var file in result)
             {
@@ -198,19 +221,19 @@ namespace F500Tool
         private static void LogHeaderInfo(FileHeader fileHeader)
         {
             if (fileHeader.BstStart != fileHeader.BstEnd)
-                Logger.Trace("BST found");
+                Logger.Trace("BST found at {0:X6}", fileHeader.BstStart);
 
             if (fileHeader.BldStart != fileHeader.BldEnd)
-                Logger.Trace("BLD found");
+                Logger.Trace("BLD found at {0:X6}", fileHeader.BldStart);
 
             if (fileHeader.PriStart != fileHeader.PriEnd)
-                Logger.Trace("PRI found");
+                Logger.Trace("PRI found at {0:X6}", fileHeader.PriStart);
 
             if (RomExists(fileHeader))
-                Logger.Trace("ROM found");
+                Logger.Trace("ROM found at {0:X6}", fileHeader.RomStart);
 
             if (fileHeader.DspStart != fileHeader.DspEnd)
-                Logger.Trace("DPS found");
+                Logger.Trace("DPS found at {0:X6}", fileHeader.DspStart);
         }
 
         private static bool RomExists(FileHeader fileHeader)
@@ -510,12 +533,60 @@ namespace F500Tool
                 if (index >= 0 && _bitmaps != null)
                 {
                     var bitmap = _bitmaps[index];
+
+                    hexTextBox.Text = String.Format(
+                        "Start={0:X5} Length={1:0000}({1:X4})", 
+                        bitmap.Header.Start, bitmap.Header.Length);
+                    hexTextBox.Text += Environment.NewLine;
+                    hexTextBox.Text += String.Format(
+                        "Magik={0:X4} Width={1:0000}({1:X4}) Height={2:0000}({2:X4})", 
+                        bitmap.BitmapData.Magik, bitmap.BitmapData.Width, bitmap.BitmapData.Height);
+                    hexTextBox.Text += Environment.NewLine;
+
                     for (int i=0; i < bitmap.BitmapData.Data.Length; i++)
                     {
                         if ((i % 16 == 0) && (i !=0)) hexTextBox.Text += Environment.NewLine;
 
                         hexTextBox.Text += String.Format("{0:X2} ", bitmap.BitmapData.Data[i]);
-                    }                    
+                    }
+
+                    decodedHexTextBox.Text = "";
+                    var decodedData = bitmap.BitmapData.GetDecodedData();
+                    var sb = new StringBuilder();
+                    for(int i=0; i < decodedData.Length; i++)
+                    {
+                        if ((i % bitmap.BitmapData.Width == 0) && (i != 0))
+                            sb.AppendLine("");
+                            
+                        sb.AppendFormat("{0:X2} ", decodedData[i]);
+                    }
+                    decodedHexTextBox.Text = sb.ToString();
+
+                    var preview = new Bitmap(bitmap.BitmapData.Width, bitmap.BitmapData.Height);
+                    for(int y = 0; y < bitmap.BitmapData.Height; y ++)
+                    {
+                        for(int x = 0; x < bitmap.BitmapData.Width; x ++)
+                        {
+                            byte data = decodedData[y * bitmap.BitmapData.Width + x];
+                            var color = Color.FromArgb(data, data, data);
+                            if (data == 0x0D)
+                            {
+                                color = Color.Gray;
+                            }
+                            if (data == 0x09)
+                            {
+                                color = Color.Red;
+                            }
+                            if (data == 0x0F)
+                            {
+                                color = Color.White;
+                            }
+
+                            preview.SetPixel(x,y,color);
+                        }
+                    }
+
+                    bitmapPreview.Image = preview;
                 }
             }
             catch (Exception ex)

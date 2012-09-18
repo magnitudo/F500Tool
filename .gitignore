@@ -12,3 +12,5 @@ _ReSharper.F500Tool
 #NuGet
 packages/NLog.2.0.0.2000
 /.nuget/NuGet.exe
+/Release/F500Tool/F500Tool.exe
+/Release/F500Tool/F500Tool.exe.config

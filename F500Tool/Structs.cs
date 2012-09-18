@@ -129,11 +129,17 @@ namespace F500Tool
         public Int16 Width;
         public Int16 Height;
 
+        public Int16 Unknown0;
+        public Int16 Unknown1;
+        public Int16 Unknown2;
+
+        public Int32 DataLen;
+
         public byte[] Data;
 
         public int GetFixedSize
         {
-            get { return sizeof(UInt16) + sizeof(Int16) + sizeof(Int16); }
+            get { return 16; }
         }
 
         public void FillFromByteArray(byte[] arr)
@@ -146,9 +152,45 @@ namespace F500Tool
             Width = (Int16)((arr[3] * 0x100) | arr[2]);
             Height = (Int16)((arr[5] * 0x100) | arr[4]);
 
+            Unknown0 = (Int16)((arr[7] * 0x100) | arr[6]);
+            Unknown1 = (Int16)((arr[9] * 0x100) | arr[8]);
+            Unknown2 = (Int16)((arr[11] * 0x100) | arr[10]);
+
+            DataLen = ((arr[15]*0x1000000) | (arr[14]*0x10000) | (arr[13]*0x100) | arr[12]);
+
             Data = new byte[arr.Length - GetFixedSize];
 
             Array.Copy(arr,GetFixedSize,Data,0,Data.Length);
+        }
+
+        public byte[] GetDecodedData()
+        {
+            if (Data == null) return null;
+            var result = new List<byte>();
+            int counter = 0;
+            do
+            {
+                var serviceByte = Data[counter];
+                if ((serviceByte & 0x80) != 0)
+                {
+                    // Выставлен старший бит. Т.е. байт показывает число неповторяющихся байт. Копируем их количество + 1 в выходную цепочку
+                    serviceByte = (byte)(serviceByte & 0x7F);
+                    serviceByte++;
+                    
+                    for (var j = 1; j <= serviceByte; j++)
+                        result.Add(Data[counter + j]);
+
+                    counter += (serviceByte + 1);
+                }
+                else
+                {
+                    // Страший бит не выставлен, т.е. байт показывает количество + 1 повторяющихся байтов
+                    result.AddRange(Enumerable.Repeat(Data[counter+1],serviceByte + 1));
+                    counter += 2;
+
+                }                
+            } while (counter < Data.Length);
+            return result.ToArray();
         }
     }
 }

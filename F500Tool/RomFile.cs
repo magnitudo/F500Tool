@@ -15,21 +15,4 @@ namespace F500Tool
             get { return Header.FileName; }
         }
     }
-
-    public class EntireBitmap
-    {
-        public BitmapHeader Header;
-        public BitmapData   BitmapData;
-
-        public override string ToString()
-        {
-            return String.Format(
-                "{0:X} {1}({1:X}) {2}({2:X}) {3}({3:X}) {4}",
-                Header.Start,
-                Header.Length,
-                BitmapData.Width,
-                BitmapData.Height,
-                BitmapData.Data.Length);
-        }
-    }
 }

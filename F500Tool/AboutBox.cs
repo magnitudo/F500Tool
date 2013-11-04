@@ -99,7 +99,7 @@ namespace F500Tool
         private void DownloadsLinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             System.Diagnostics.Process.Start(
-                "https://github.com/magnitudo/F500Tool/downloads");  
+                "https://github.com/magnitudo/F500Tool/releases");  
         }
 
         private void HowToLinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -111,7 +111,7 @@ namespace F500Tool
         private void EbayForumLinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             System.Diagnostics.Process.Start(
-                "http://www.ebay-forum.ru/phpBB2/topic/92856-%d0%b0%d0%b2%d1%82%d0%be%d0%bc%d0%be%d0%b1%d0%b8%d0%bb%d1%8c%d0%bd%d1%8b%d0%b9-%d0%b2%d0%b8%d0%b4%d0%b5%d0%be%d1%80%d0%b5%d0%b3%d0%b8%d1%81%d1%82%d1%80%d0%b0%d1%82%d0%be%d1%80-f500l-%d1%81-dx/page__view__findpost__p__1800321");  
+                "http://www.taker.im/phpBB2/topic/92856-%D0%B0%D0%B2%D1%82%D0%BE%D0%BC%D0%BE%D0%B1%D0%B8%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9-%D0%B2%D0%B8%D0%B4%D0%B5%D0%BE%D1%80%D0%B5%D0%B3%D0%B8%D1%81%D1%82%D1%80%D0%B0%D1%82%D0%BE%D1%80-f500l-%D1%81-dx/page__st__14480");  
         }
 
         private void labelVersion_Click(object sender, EventArgs e)

@@ -47,9 +47,9 @@
             this.BitmapsPage = new System.Windows.Forms.TabPage();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.BitmapsList = new System.Windows.Forms.ListBox();
-            this.hexTextBox = new System.Windows.Forms.TextBox();
             this.tabControl2 = new System.Windows.Forms.TabControl();
             this.RawData = new System.Windows.Forms.TabPage();
+            this.hexTextBox = new System.Windows.Forms.TextBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.decodedHexTextBox = new System.Windows.Forms.TextBox();
             this.bitmapPreview = new System.Windows.Forms.PictureBox();
@@ -80,7 +80,7 @@
             this.aboutButton});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(814, 39);
+            this.toolStrip1.Size = new System.Drawing.Size(610, 39);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -112,10 +112,11 @@
             // LogTextBox
             // 
             this.LogTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.LogTextBox.Location = new System.Drawing.Point(3, 3);
+            this.LogTextBox.Location = new System.Drawing.Point(2, 2);
+            this.LogTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.LogTextBox.Multiline = true;
             this.LogTextBox.Name = "LogTextBox";
-            this.LogTextBox.Size = new System.Drawing.Size(800, 547);
+            this.LogTextBox.Size = new System.Drawing.Size(598, 436);
             this.LogTextBox.TabIndex = 1;
             // 
             // tabControl1
@@ -125,18 +126,20 @@
             this.tabControl1.Controls.Add(this.BitmapsPage);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 39);
+            this.tabControl1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(814, 582);
+            this.tabControl1.Size = new System.Drawing.Size(610, 466);
             this.tabControl1.TabIndex = 2;
             // 
             // tabPage1
             // 
             this.tabPage1.Controls.Add(this.LogTextBox);
-            this.tabPage1.Location = new System.Drawing.Point(4, 25);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(806, 553);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage1.Size = new System.Drawing.Size(602, 440);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Журнал";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -146,17 +149,19 @@
             this.RomTabPage.Controls.Add(this.picturePreview);
             this.RomTabPage.Controls.Add(this.filesListBox);
             this.RomTabPage.Controls.Add(this.toolStrip2);
-            this.RomTabPage.Location = new System.Drawing.Point(4, 25);
+            this.RomTabPage.Location = new System.Drawing.Point(4, 22);
+            this.RomTabPage.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.RomTabPage.Name = "RomTabPage";
-            this.RomTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.RomTabPage.Size = new System.Drawing.Size(806, 553);
+            this.RomTabPage.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.RomTabPage.Size = new System.Drawing.Size(602, 447);
             this.RomTabPage.TabIndex = 1;
             this.RomTabPage.Text = "ROM";
             this.RomTabPage.UseVisualStyleBackColor = true;
             // 
             // picturePreview
             // 
-            this.picturePreview.Location = new System.Drawing.Point(236, 45);
+            this.picturePreview.Location = new System.Drawing.Point(177, 37);
+            this.picturePreview.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.picturePreview.Name = "picturePreview";
             this.picturePreview.Size = new System.Drawing.Size(100, 50);
             this.picturePreview.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -167,10 +172,10 @@
             // 
             this.filesListBox.Dock = System.Windows.Forms.DockStyle.Left;
             this.filesListBox.FormattingEnabled = true;
-            this.filesListBox.ItemHeight = 16;
-            this.filesListBox.Location = new System.Drawing.Point(3, 42);
+            this.filesListBox.Location = new System.Drawing.Point(2, 41);
+            this.filesListBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.filesListBox.Name = "filesListBox";
-            this.filesListBox.Size = new System.Drawing.Size(227, 508);
+            this.filesListBox.Size = new System.Drawing.Size(171, 404);
             this.filesListBox.TabIndex = 1;
             this.filesListBox.SelectedIndexChanged += new System.EventHandler(this.FilesListBoxSelectedIndexChanged);
             // 
@@ -183,9 +188,9 @@
             this.packButton,
             this.toolStripSeparator1,
             this.saveRomButton});
-            this.toolStrip2.Location = new System.Drawing.Point(3, 3);
+            this.toolStrip2.Location = new System.Drawing.Point(2, 2);
             this.toolStrip2.Name = "toolStrip2";
-            this.toolStrip2.Size = new System.Drawing.Size(800, 39);
+            this.toolStrip2.Size = new System.Drawing.Size(598, 39);
             this.toolStrip2.TabIndex = 2;
             this.toolStrip2.Text = "toolStrip2";
             // 
@@ -227,9 +232,10 @@
             // BitmapsPage
             // 
             this.BitmapsPage.Controls.Add(this.splitContainer1);
-            this.BitmapsPage.Location = new System.Drawing.Point(4, 25);
+            this.BitmapsPage.Location = new System.Drawing.Point(4, 22);
+            this.BitmapsPage.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.BitmapsPage.Name = "BitmapsPage";
-            this.BitmapsPage.Size = new System.Drawing.Size(806, 553);
+            this.BitmapsPage.Size = new System.Drawing.Size(602, 447);
             this.BitmapsPage.TabIndex = 2;
             this.BitmapsPage.Text = "Bitmaps";
             this.BitmapsPage.UseVisualStyleBackColor = true;
@@ -238,6 +244,7 @@
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer1.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.splitContainer1.Name = "splitContainer1";
             // 
             // splitContainer1.Panel1
@@ -247,8 +254,9 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.tabControl2);
-            this.splitContainer1.Size = new System.Drawing.Size(806, 553);
+            this.splitContainer1.Size = new System.Drawing.Size(604, 449);
             this.splitContainer1.SplitterDistance = 353;
+            this.splitContainer1.SplitterWidth = 3;
             this.splitContainer1.TabIndex = 2;
             // 
             // BitmapsList
@@ -256,22 +264,12 @@
             this.BitmapsList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.BitmapsList.Font = new System.Drawing.Font("Courier New", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.BitmapsList.FormattingEnabled = true;
-            this.BitmapsList.ItemHeight = 16;
             this.BitmapsList.Location = new System.Drawing.Point(0, 0);
+            this.BitmapsList.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.BitmapsList.Name = "BitmapsList";
-            this.BitmapsList.Size = new System.Drawing.Size(353, 553);
+            this.BitmapsList.Size = new System.Drawing.Size(266, 450);
             this.BitmapsList.TabIndex = 0;
             this.BitmapsList.SelectedIndexChanged += new System.EventHandler(this.BitmapsListSelectedIndexChanged);
-            // 
-            // hexTextBox
-            // 
-            this.hexTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.hexTextBox.Font = new System.Drawing.Font("Courier New", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.hexTextBox.Location = new System.Drawing.Point(3, 3);
-            this.hexTextBox.Multiline = true;
-            this.hexTextBox.Name = "hexTextBox";
-            this.hexTextBox.Size = new System.Drawing.Size(435, 518);
-            this.hexTextBox.TabIndex = 1;
             // 
             // tabControl2
             // 
@@ -279,30 +277,44 @@
             this.tabControl2.Controls.Add(this.tabPage3);
             this.tabControl2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl2.Location = new System.Drawing.Point(0, 0);
+            this.tabControl2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tabControl2.Name = "tabControl2";
             this.tabControl2.SelectedIndex = 0;
-            this.tabControl2.Size = new System.Drawing.Size(449, 553);
+            this.tabControl2.Size = new System.Drawing.Size(337, 449);
             this.tabControl2.TabIndex = 2;
             // 
             // RawData
             // 
             this.RawData.Controls.Add(this.hexTextBox);
-            this.RawData.Location = new System.Drawing.Point(4, 25);
+            this.RawData.Location = new System.Drawing.Point(4, 22);
+            this.RawData.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.RawData.Name = "RawData";
-            this.RawData.Padding = new System.Windows.Forms.Padding(3);
-            this.RawData.Size = new System.Drawing.Size(441, 524);
+            this.RawData.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.RawData.Size = new System.Drawing.Size(329, 423);
             this.RawData.TabIndex = 0;
             this.RawData.Text = "RawData";
             this.RawData.UseVisualStyleBackColor = true;
+            // 
+            // hexTextBox
+            // 
+            this.hexTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.hexTextBox.Font = new System.Drawing.Font("Courier New", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.hexTextBox.Location = new System.Drawing.Point(2, 2);
+            this.hexTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.hexTextBox.Multiline = true;
+            this.hexTextBox.Name = "hexTextBox";
+            this.hexTextBox.Size = new System.Drawing.Size(327, 424);
+            this.hexTextBox.TabIndex = 1;
             // 
             // tabPage3
             // 
             this.tabPage3.Controls.Add(this.decodedHexTextBox);
             this.tabPage3.Controls.Add(this.bitmapPreview);
-            this.tabPage3.Location = new System.Drawing.Point(4, 25);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(441, 524);
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage3.Size = new System.Drawing.Size(329, 423);
             this.tabPage3.TabIndex = 1;
             this.tabPage3.Text = "Decoded";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -311,30 +323,33 @@
             // 
             this.decodedHexTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.decodedHexTextBox.Font = new System.Drawing.Font("Courier New", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.decodedHexTextBox.Location = new System.Drawing.Point(3, 116);
+            this.decodedHexTextBox.Location = new System.Drawing.Point(2, 94);
+            this.decodedHexTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.decodedHexTextBox.Multiline = true;
             this.decodedHexTextBox.Name = "decodedHexTextBox";
-            this.decodedHexTextBox.Size = new System.Drawing.Size(435, 405);
+            this.decodedHexTextBox.Size = new System.Drawing.Size(327, 332);
             this.decodedHexTextBox.TabIndex = 2;
             // 
             // bitmapPreview
             // 
             this.bitmapPreview.Dock = System.Windows.Forms.DockStyle.Top;
-            this.bitmapPreview.Location = new System.Drawing.Point(3, 3);
+            this.bitmapPreview.Location = new System.Drawing.Point(2, 2);
+            this.bitmapPreview.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.bitmapPreview.Name = "bitmapPreview";
-            this.bitmapPreview.Size = new System.Drawing.Size(435, 113);
+            this.bitmapPreview.Size = new System.Drawing.Size(326, 92);
             this.bitmapPreview.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.bitmapPreview.TabIndex = 3;
             this.bitmapPreview.TabStop = false;
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(814, 621);
+            this.ClientSize = new System.Drawing.Size(610, 505);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.toolStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "MainForm";
             this.Text = "F500Tool";
             this.Load += new System.EventHandler(this.MainFormLoad);
